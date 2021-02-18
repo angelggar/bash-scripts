@@ -5,7 +5,7 @@ list=`ls ~/Downloads/*.zip 2> /dev/null`
 mv "$list" "$directory" 2> /dev/null
 if [ $? -eq 0 ]
 then
-    echo "File move"
+    echo "File moved to $directory"
 else
     echo "No such file"
 fi
@@ -14,15 +14,15 @@ fi
 unzip -q "$directory${list##*[/]}" -d "$directory" 2> /dev/null
 if [ $? -eq 0 ]
 then
-    echo "To extract the files"
+    echo "Files extracted"
 else
-    echo "Error to extract"
+    echo "Error extracting files"
 fi
 
 rm "$directory${list##*[/]}" 2> /dev/null
 if [ $? -eq 0 ]
 then
-    echo "Remove .zip"
+    echo "Removed .zip"
 else
-    echo "Error to remove"
+    echo "Error removing .zip"
 fi
